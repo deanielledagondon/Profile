@@ -1,90 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:profile/model/books.dart';
+import 'package:profile/pages/book_details.dart';
 
-class ReadingList extends StatefulWidget {
-  const ReadingList({Key? key}) : super(key: key);
+class ToRead extends StatefulWidget {
+  const ToRead({Key? key}) : super(key: key);
 
   @override
-  State<ReadingList> createState() => _ReadingListState();
+  State<ToRead> createState() => _ToReadState();
 }
 
-class _ReadingListState extends State<ReadingList> {
+class _ToReadState extends State<ToRead> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('To Watch'),
+      ),
       body: ListView.builder(
-          itemCount: 10,
-          shrinkWrap: true,
-          itemBuilder: (BuildContext context, int index) => Container(
-            width: MediaQuery.of(context).size.width,
-            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-            child: Card(
-              elevation: 5.0,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(0.0),
-              ),
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget> [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget> [
-                        Container(
-                          width: 55.0,
-                          height: 55.0,
-                          color: Colors.deepPurple,
-                          child: const CircleAvatar(
-                            backgroundColor: Colors.cyan,
-                            foregroundColor: Colors.cyan,
-                            // backgroundImage: NetworkImage(url),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 5.0,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const <Widget> [
-                            // Text(title[index],
-                            //   style: TextStyle(
-                            //       color: Colors.black,
-                            //       fontSize: 18.0,
-                            //       fontWeight: FontWeight.bold),
-                            // ),
-                            // Text(genre[index],
-                            //   style: TextStyle(
-                            //       color: Colors.black,
-                            //       fontSize: 18.0,
-                            //       fontWeight: FontWeight.bold),
-                            // ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                        ),
-                        onPressed: () {},
-                        child: const Text("See More",
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+        itemCount: readList.length,
+        itemBuilder: (context, index) {
+          Books books = readList[index];
+          return Card(
+            child: ListTile(
+                title: Text(books.title),
+                subtitle: Text(books.year.toString()),
+                leading: Image.network(books.imageUrl),
+                trailing: const Icon(Icons.arrow_forward_rounded),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => BookDetails(books: readList[index])));
+                }
             ),
-          ),
+          );
+        },
       ),
     );
   }

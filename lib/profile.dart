@@ -53,7 +53,7 @@ class _ProfileState extends State<Profile> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const ReadingList()),
+                  MaterialPageRoute(builder: (context) => const ToWatch()),
                 );
               },
             ),
