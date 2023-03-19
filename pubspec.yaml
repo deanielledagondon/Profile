@@ -32,7 +32,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_launcher_icons: ^0.11.0
-  footer:
+  url_launcher: ^6.1.10
+  font_awesome_flutter: ^10.4.0
 
 
   # The following adds the Cupertino Icons font to your application.
