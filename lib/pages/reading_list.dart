@@ -14,7 +14,7 @@ class _ToReadState extends State<ToRead> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('To Watch'),
+        title: const Text('To Read'),
       ),
       body: ListView.builder(
         itemCount: readList.length,
