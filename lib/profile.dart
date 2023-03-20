@@ -47,9 +47,9 @@ class _ProfileState extends State<Profile> {
             ),
             ListTile(
               leading: const Icon(
-                Icons.book,
+                Icons.movie,
               ),
-              title: const Text('Reading List'),
+              title: const Text('Watch Later'),
               onTap: () {
                 Navigator.push(
                   context,
@@ -59,9 +59,9 @@ class _ProfileState extends State<Profile> {
             ),
             ListTile(
               leading: const Icon(
-                Icons.movie,
+                Icons.book,
               ),
-              title: const Text('Watch Later'),
+              title: const Text('Reading List'),
               onTap: () {
                 Navigator.push(
                   context,
