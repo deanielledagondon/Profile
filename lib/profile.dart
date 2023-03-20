@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:profile/login.dart';
+import 'package:profile/pages/fave_games.dart';
 import 'package:profile/pages/reading_list.dart';
 import 'package:profile/pages/to_watch.dart';
 import 'package:profile/social.dart';
@@ -65,22 +65,22 @@ class _ProfileState extends State<Profile> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const ToWatch()),
+                  MaterialPageRoute(builder: (context) => const ToRead()),
                 );
               },
             ),
-            // ListTile(
-            //   leading: const Icon(
-            //     Icons.exit_to_app,
-            //   ),
-            //   title: const Text('Sign Out'),
-            //   onTap: () {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => const Login()),
-            //     );
-            //   },
-            // ),
+            ListTile(
+              leading: const Icon(
+                Icons.games,
+              ),
+              title: const Text('Games to Play'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const FavoriteGames()),
+                );
+              },
+            ),
           ],
         ),
       ),
