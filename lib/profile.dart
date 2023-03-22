@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:profile/main.dart';
 import 'package:profile/pages/fave_games.dart';
 import 'package:profile/pages/reading_list.dart';
 import 'package:profile/pages/to_watch.dart';
@@ -17,7 +18,16 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Profile"),
+        title: const Text("Admin Profile"),
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          },
+          child: const Icon(Icons.home),
+        ),
       ),
       drawer: Drawer(
         child: ListView(
