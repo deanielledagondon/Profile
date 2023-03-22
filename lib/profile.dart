@@ -19,15 +19,20 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Admin Profile"),
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => HomePage()),
-            );
-          },
-          child: const Icon(Icons.home),
-        ),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(right: 20.0),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                );
+              },
+              child: const Icon(Icons.home),
+            ),
+          ),
+        ],
       ),
       drawer: Drawer(
         child: ListView(
@@ -87,7 +92,8 @@ class _ProfileState extends State<Profile> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const FavoriteGames()),
+                  MaterialPageRoute(
+                      builder: (context) => const FavoriteGames()),
                 );
               },
             ),
