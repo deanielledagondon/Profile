@@ -44,7 +44,7 @@ class HomePage extends StatefulWidget {
   final User? user = Auth().currentUser;
 
   Future<void> signOut() async {
-    await Auth().signOut();
+    await FirebaseAuth.instance.signOut();
   }
 
   Widget _userID() {

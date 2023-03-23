@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _title () {
-    return const Text('Login');
+    return const Text('Authentication');
   }
 
   Widget _entryField(
